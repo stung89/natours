@@ -1,9 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
+import TourModal from './TourModal';
 
 export const LoginPage = ({ startLogin }) => (
     <div>
+        <div className="navigation">
+            <input type="checkbox" className="navigation__checkbox" id="navi-toggle"/>
+            <label htmlFor="navi-toggle" className="navigation__button">
+                <span className="navigation__icon">&nbsp;</span>
+            </label>
+            <div className="navigation__background">&nbsp;</div>
+
+            <nav className="navigation__nav">
+                <ul className="navigation__list">
+                    <li className="navigation__item"><a href="#" className="navigation__link"><span>01</span>About</a></li>
+                    <li className="navigation__item"><a href="#" className="navigation__link"><span>02</span>Benefits</a></li>
+                    <li className="navigation__item"><a href="#" className="navigation__link"><span>03</span>Tours</a></li>
+                    <li className="navigation__item"><a href="#" className="navigation__link"><span>04</span>Stories</a></li>
+                    <li className="navigation__item"><a href="#" className="navigation__link"><span>05</span>Book now</a></li>
+                </ul>
+            </nav>
+        </div>
         <header className="header">
             <div className="header__logo-box">
                 <img src="images/logo-white.png" alt="Logo" className="header__logo"/>
@@ -123,7 +141,7 @@ export const LoginPage = ({ startLogin }) => (
                                         <p className="card__price-only">Only</p>
                                         <p className="card__price-value">$297</p>
                                     </div>
-                                    <a href="#" className="btn btn--white">Book now</a>
+                                    <a href="#modal" className="btn btn--white">Book now</a>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +172,7 @@ export const LoginPage = ({ startLogin }) => (
                                         <p className="card__price-only">Only</p>
                                         <p className="card__price-value">$297</p>
                                     </div>
-                                    <a href="#" className="btn btn--white">Book now</a>
+                                    <a href="#modal" className="btn btn--white">Book now</a>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +203,7 @@ export const LoginPage = ({ startLogin }) => (
                                         <p className="card__price-only">Only</p>
                                         <p className="card__price-value">$297</p>
                                     </div>
-                                    <a href="#" className="btn btn--white">Book now</a>
+                                    <a href="#modal" className="btn btn--white">Book now</a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +213,141 @@ export const LoginPage = ({ startLogin }) => (
                     <a href="#" className="btn btn--green">Discover all tours</a>
                 </div>
             </section>
+            <section className="section-stories">
+                <div className="bg-video">
+                    <video className="bg-video__content" autoPlay muted loop>
+                        <source src="images/video.mp4" type="video/mp4"/>
+                        <source src="images/video.webm" type="video/webm"/>
+                        Your browser is not supported!
+                    </video>
+                </div>
+                <div className="u-center-text u-margin-bottom-big">
+                    <h2 className="heading-secondary">
+                        We make people genuinely happy
+                    </h2>
+                </div>
+                <div className="row">
+                    <div className="story">
+                        <figure className="story__shape">
+                            <img src="images/nat-8.jpg" alt="Profile" className="story__image"/>
+                            <figcaption className="story__caption">
+                                Rose Tyler
+                            </figcaption>
+                        </figure>
+                        <div className="story__text">
+                            <h3 className="heading-tertiary u-margin-bottom-small">I had the best week ever with my family</h3>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora perspiciatis illum omnis vero impedit suscipit voluptatum esse, nam animi eius repellendus inventore similique ea possimus deserunt, aliquid modi dignissimos quaerat! Tempora perspiciatis illum omnis vero impedit suscipit voluptatum esse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="story">
+                        <figure className="story__shape">
+                            <img src="images/nat-9.jpg" alt="Profile" className="story__image"/>
+                            <figcaption className="story__caption">
+                                Jack Harkness
+                            </figcaption>
+                        </figure>
+                        <div className="story__text">
+                            <h3 className="heading-tertiary u-margin-bottom-small">They call me the face of Boe!</h3>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora perspiciatis illum omnis vero impedit suscipit voluptatum esse, nam animi eius repellendus inventore similique ea possimus deserunt, aliquid modi dignissimos quaerat! Tempora perspiciatis illum omnis vero impedit suscipit voluptatum esse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="u-center-text u-margin-top-huge">
+                    <a href="#" className="btn-text">Read all stories &rarr;</a>
+                </div>
+            </section>
+            <section className="section-book">
+                <div className="row">
+                    <div className="book">
+                        <div className="book__form">
+                            <form action="#" className="form">
+                                <div className="u-margin-bottom-medium">
+                                    <h2 className="heading-secondary">
+                                        Start booking now
+                                    </h2>
+                                </div>
+                                <div className="form__group">
+                                    <input type="text" className="form__input" placeholder="Full Name" id="name" required/>
+                                    <label htmlFor="name" className="form__label">Full name</label>
+                                </div>
+                                <div className="form__group">
+                                    <input type="email" className="form__input" placeholder="Email address" id="email" required/>
+                                    <label htmlFor="email" className="form__label">Email address</label>
+                                </div>
+                                <div className="form__group u-margin-bottom-medium">
+                                    <div className="form__radio-group">
+                                        <input type="radio" className="form__radio-input" id="small" name="size"/>
+                                        <label htmlFor="small" className="form__radio-label">
+                                            <span className="form__radio-button"></span>
+                                            Small tour group
+                                        </label>
+                                    </div>
+                                    <div className="form__radio-group">
+                                        <input type="radio" className="form__radio-input" id="large" name="size"/>
+                                        <label htmlFor="large" className="form__radio-label">
+                                            <span className="form__radio-button"></span>
+                                            Large tour group
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <button className="btn btn--green">Next step &rarr;</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+        <footer className="footer">
+            <div className="footer__logo-box">
+                <img src="images/logo-green-2x.png" alt="footer_logo" className="footer__logo"/>
+            </div>
+            <div className="row">
+                <div className="col-1-of-2">
+                    <div className="footer__navigation">
+                        <ul className="footer__list">
+                            <li className="footer__item"><a href="#" className="footer__link">Company</a></li>
+                            <li className="footer__item"><a href="#" className="footer__link">Contact</a></li>
+                            <li className="footer__item"><a href="#" className="footer__link">Careers</a></li>
+                            <li className="footer__item"><a href="#" className="footer__link">Privacy policy</a></li>
+                            <li className="footer__item"><a href="#" className="footer__link">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-1-of-2">
+                    <p className="footer__copyright">
+                        Built by <a href="#" className="footer__link">Steven Tung</a> for online course <a href="#" className="footer__link">Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schedtmann. You are 100% allowed to use this webpage for both personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jonas Schedtmann, is of course highly appreciated!
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <TourModal />
+         {
+        //     <div className="modal" id="modal">
+        //     <div className="modal__content">
+        //         <div className="modal__left">
+        //             <img src="images/nat-8.jpg" alt="tour photo" className="modal__img"/>
+        //             <img src="images/nat-9.jpg" alt="tour photo" className="modal__img"/>
+        //         </div>
+        //         <div className="modal__right">
+        //             <h2 className="heading-secondary u-margin-bottom-medium">Start booking now</h2>
+        //             <h3 className="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+        //             <p className="modal__text">
+        //             Occaecat shabby chic sint vinyl anim. Tofu do gluten-free ut flannel forage scenester man bun venmo fixie slow-carb. Freegan meditation tbh four loko. Bushwick crucifix viral VHS veniam bicycle rights. In hoodie ipsum reprehenderit shaman vinyl quis quinoa artisan put a bird on it ullamco. Pariatur ennui irony, meggings twee nostrud neutra fugiat offal chambray mixtape before they sold out. Vaporware eu mumblecore tumblr tbh ullamco.
+        //             </p>
+        //             <a href="#" className="btn btn--green">Book now</a>
+        //         </div>
+        //     </div>
+        // </div>
+        }
 
         {/*<section className="grid-test">
             <div className="row">
